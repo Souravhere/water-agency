@@ -1,16 +1,22 @@
-"use client"
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
-import Link from 'next/link'
+"use client";
 
-const menuItems = ['Home', 'Services', 'About', 'Projects', 'Contact']
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
 
-export default function Header({ isMenuOpen, setIsMenuOpen }) {
+const menuItems = ['Home', 'Services', 'About', 'Projects', 'Contact'];
+
+export default function Header() {
+  // Manage the menu open/close state internally
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-blue-600">IndustryCo</Link>
+        <Link href="/" className="text-2xl font-bold text-blue-600">
+          IndustryCo
+        </Link>
         <nav className="hidden md:flex space-x-4">
           {menuItems.map((item) => (
             <Link key={item} href={`#${item.toLowerCase()}`} className="text-gray-600 hover:text-blue-600">
@@ -22,6 +28,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
           {isMenuOpen ? <X /> : <Menu />}
         </button>
       </div>
+
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -47,5 +54,5 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }

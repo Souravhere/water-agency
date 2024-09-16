@@ -5,13 +5,13 @@ import Image from 'next/image'
 export default function Hero() {
   return (
     <section className="relative h-screen">
-      {/* <Image
-        src=""
+      <Image
+        src="/hero-bg.jpg"
         alt="Industrial worker welding"
         layout="fill"
         objectFit="cover"
         quality={100}
-      /> */}
+      />
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
